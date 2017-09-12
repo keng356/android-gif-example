@@ -23,6 +23,7 @@ buildscript {
     classpath(extra["gradleVersionsPlugin"])
     classpath(extra["gradleLicensePlugin"])
     classpath(extra["detektGradlePlugin"])
+    classpath(extra["androidJunit5"])
   }
 }
 
@@ -37,6 +38,7 @@ apply {
   plugin("kotlin-android")
   plugin("kotlin-android-extensions")
   plugin("kotlin-kapt")
+  plugin("de.mannodermaus.android-junit5")
   plugin("android-command")
   plugin("com.github.triplet.play")
   plugin("com.getkeepsafe.dexcount")
@@ -179,6 +181,7 @@ dependencies {
   compile(extra["glide"])
   compile(extra["okhttp3Integration"])
   compile(extra["dagger"])
+  compile(extra["multidex"])
 
   kapt(extra["daggerCompiler"])
   kapt(extra["glideCompiler"])
@@ -197,7 +200,9 @@ dependencies {
   androidTestCompile(extra["espressoContrib"] as String) { exclude(group = "com.android.support") }
   androidTestCompile(extra["mockwebserver"])
 
-  testCompile(extra["junit"])
+  testCompile(extra["junitJupiterApi"])
+  testCompile(extra["junitJupiterEngine"])
+  testCompile(extra["junit5EmbeddedRuntime"])
   testCompile(extra["truth"])
   testCompile(extra["mockitoKotlin"])
   testCompile(extra["mockitoInline"])

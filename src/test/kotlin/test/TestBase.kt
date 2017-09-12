@@ -1,8 +1,8 @@
 package test
 
 import okhttp3.mockwebserver.MockResponse
-import org.junit.After
-import org.junit.Before
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import java.io.InputStreamReader
 import java.net.HttpURLConnection.HTTP_OK
 import java.util.Random
@@ -47,9 +47,9 @@ abstract class TestBase {
     }
   }
 
-  @Before open fun setUp() {
+  @BeforeEach open fun setUp() {
   }
 
-  @After open fun tearDown() {
+  @AfterEach open fun tearDown() {
   }
 }
